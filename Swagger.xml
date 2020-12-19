@@ -1,0 +1,2383 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core.ApiClient</name>
+    </assembly>
+    <members>
+        <member name="P:Core.ApiClient.BaseAttribute.RemarkAttribute.Info">
+            <summary>
+            备注信息
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.BaseApiController">
+            <summary>
+            Token 验证
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iRedis">
+            <summary>
+            Redis 缓存
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iPay">
+            <summary>
+            付款
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iSMS">
+            <summary>
+            短信
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iOrder">
+            <summary>
+            订单管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iQueue">
+            <summary>
+            消息队列
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iEntrepot">
+            <summary>
+            物流管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iEntrepotOperation">
+            <summary>
+            产品运营管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iInformation">
+            <summary>
+            信息管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iComment">
+            <summary>
+            评论管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iLog">
+            <summary>
+            项目日志
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProject">
+            <summary>
+            项目信息|操作
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProjectUser">
+            <summary>
+            用户操作
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProjectUserApiService">
+            <summary>
+            项目Api操作
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iSocketGroup">
+            <summary>
+            群组管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iSocketRelationship">
+            <summary>
+            用户关系管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iSocketMessage">
+            <summary>
+            Queue消息管理
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iSocketUser">
+            <summary>
+            Queue 用户操作
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProjectContext">
+            <summary>
+            项目管理数据库
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProjectSocketContext">
+            <summary>
+            消息管理数据库
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iClientInfo">
+            <summary>
+            客户端信息
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProjectInfo">
+            <summary>
+            项目信息
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.BaseApiController.iProjectUserInfo">
+            <summary>
+            项目用户信息
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.BaseApiController.Result``1(Core.Framework.Model.Common.MethodResult{``0},Core.Framework.Model.Common.Pagination)">
+            <summary>
+            通用 Result
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="result"></param>
+            <param name="pagination">分页参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.BaseApiController.ExecMethod(System.Func{Core.ApiClient.IResult},System.Tuple{System.Boolean,System.String}[])">
+            <summary>
+            通用执行方法
+            </summary>
+            <param name="result"></param>
+            <param name="isValids">验证模型</param>
+            <returns></returns>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.SUCCESS">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.PARAMS_IS_NULL">
+            <summary>
+            参数为空
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.PARAMS_NOT_COMPLETE">
+            <summary>
+            参数不全
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.PARAMS_TYPE_ERROR">
+            <summary>
+            参数类型错误
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.PARAMS_IS_INVALID">
+            <summary>
+            参数无效
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.USER_NOT_EXIST">
+            <summary>
+            用户不存在
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.USER_NOT_LOGGED_IN">
+            <summary>
+            用户未登陆
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.USER_ACCOUNT_ERROR">
+            <summary>
+            用户名或密码错误
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.USER_ACCOUNT_FORBIDDEN">
+            <summary>
+            用户账户已被禁用
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.USER_HAS_EXIST">
+            <summary>
+            用户已存在
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.BUSINESS_ERROR">
+            <summary>
+            系统业务出现问题
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.SYSTEM_INNER_ERROR">
+            <summary>
+            系统内部错误
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.CONFIG_ERROR">
+            <summary>
+            项目配置项错误
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.DATA_NOT_FOUND">
+            <summary>
+            数据未找到
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.DATA_IS_WRONG">
+            <summary>
+            数据有误
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.DATA_ALREADY_EXISTED">
+            <summary>
+            数据已存在
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.INTERFACE_INNER_INVOKE_ERROR">
+            <summary>
+            系统内部接口调用异常
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.INTERFACE_OUTER_INVOKE_ERROR">
+            <summary>
+            系统外部接口调用异常
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.INTERFACE_FORBIDDEN">
+            <summary>
+            接口禁止访问
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.INTERFACE_ADDRESS_INVALID">
+            <summary>
+            接口地址无效
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.INTERFACE_REQUEST_TIMEOUT">
+            <summary>
+            接口请求超时
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.INTERFACE_EXCEED_LOAD">
+            <summary>
+            接口负载过高
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.PERMISSION_NO_ACCESS">
+            <summary>
+            没有访问权限
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.PERMISSION_Not_ACCESS">
+            <summary>
+            权限验证未通过
+            </summary>
+        </member>
+        <member name="F:Core.ApiClient.CodeResult.QUEUE_CHANNLE_IS_NULL">
+            <summary>
+            当前渠道没有订阅方
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.IResult.date">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.IResult.code">
+            <summary>
+            返回状态码
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.IResult.info">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Model.ApiResult">
+            <summary>
+            接口返回参数标准
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.ApiAuthorizeAttribute">
+            <summary>
+            API请求身份验证
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.ApiAuthorizeAttribute.ActionArguments(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Core.Framework.Model.Common.ApiClientInfo,Core.Framework.Model.Common.ApiProjectInfo)">
+            <summary>
+            请求参数初始值
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.ApiBaseControllerAttribute">
+            <summary>
+            API数据处理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.ApiBaseControllerAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行前
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Core.ApiClient.ApiBaseControllerAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action执行完成后
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Core.ApiClient.ApiBaseControllerAttribute.ResultEncrypt(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            返回数据加密
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Core.ApiClient.ApiProjectMemberAuthorizeAttribute">
+            <summary>
+            项目管理权限验证
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.ApiProjectMemberAuthorizeAttribute.ActionArguments(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Core.DataAccess.Model.Projects.ProjectUser,Core.Framework.Model.Common.ApiProjectInfo)">
+            <summary>
+            请求参数初始值
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.ApiVerificationAttribute">
+            <summary>
+            API服务验证
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.ApiVerificationAttribute.IsCount">
+            <summary>
+            是否计数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.ApiVerificationAttribute.ApiServiceEnum">
+            <summary>
+            服务类型
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.ApiVerificationAttribute.iProjectUserApiService">
+            <summary>
+            Api用户服务
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.ApiVerificationAttribute.iProjectInfo">
+            <summary>
+            项目信息
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.ApiVerificationAttribute.RedisHashKey">
+            <summary>
+            Redis 限流器 HashName
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.ApiVerificationAttribute.ContextInfo(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            从上下文构造需要的参数
+            </summary>
+            <param name="context">http 上下文</param>
+        </member>
+        <member name="M:Core.ApiClient.ApiVerificationAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action执行前
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Core.ApiClient.ApiVerificationAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action执行完成后
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Core.ApiClient.CustomRouteAttribute.#ctor(System.String)">
+            <summary>
+            自定义路由构造函数
+            </summary>
+            <param name="actionName"></param>
+        </member>
+        <member name="M:Core.ApiClient.CustomRouteAttribute.#ctor(Core.ApiClient.ApiVersions,System.String)">
+            <summary>
+            自定义路由构造函数
+            </summary>
+            <param name="actionName"></param>
+            <param name="version"></param>
+        </member>
+        <member name="P:Core.ApiClient.CustomRouteAttribute.GroupName">
+            <summary>
+            分组名称
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.ExceptionHandlerFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            发生异常时进入
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Core.ApiClient.ExceptionHandlerFilter.OnExceptionAsync(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            异步发生异常时进入
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.IgnoreAuthorizeAttribute">
+            <summary>
+            忽略登录
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.ApplicationLifetime.RegisterApplicationLifetime(Microsoft.AspNetCore.Hosting.IApplicationLifetime,Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            注册系统退出事件
+            </summary>
+            <param name="lifetime"></param>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.DIRegisterContext">
+            <summary>
+            注册数据库服务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.DIRegisterSwagger.AddSwaggerService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册数据库服务
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.DIRegisterSwagger.RegisterSwagger(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            注册 [Swagger] API DOC
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.TimerJobsTaskFactory">
+            <summary>
+            计划任务注册工厂
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.DIRegisterTimerJobs">
+            <summary>
+            注册计划任务
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.App_Code.Swagger_Attribute.ApplyTagDescriptions.#cctor">
+            <summary>
+            初始化文档注释
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.App_Code.Swagger_Attribute.ApplyTagDescriptions.Apply(Swashbuckle.AspNetCore.Swagger.SwaggerDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            添加控制器模块说明
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.App_Code.Swagger_Attribute.ApplyTagDescriptions.GetControllerDesc(System.String)">
+            <summary>
+            从API文档中读取控制器描述
+            </summary>
+            <returns>所有控制器描述</returns>
+        </member>
+        <member name="T:Core.ApiClient.App_Code.Swagger_Attribute.AssignOperationVendorExtensions">
+            <summary>
+            操作过过滤器 添加通用参数等
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.App_Code.Swagger_Attribute.SwaggerFileUploadAttribute">
+            <summary>
+            文件上传
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.ClearExpiredUserToken">
+            <summary>
+            清除过期的用户令牌
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.CommentReplyRequest">
+            <summary>
+            信息回复评论请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentReplyRequest.commentKey">
+            <summary>
+            回复关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentReplyRequest.attributes">
+            <summary>
+            属性集合
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentReplyRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentReplyRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentReplyRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.CommentReplyRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.CommentRequest">
+            <summary>
+            信息评论请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.infoKey">
+            <summary>
+            信息关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.type">
+            <summary>
+            自定义分类
+            用于区分不同模块的评论内容
+            [info - 信息系统]
+            [shop - 电商系统]
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.isGetReply">
+            <summary>
+            是否查询回复
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.attributes">
+            <summary>
+            属性集合
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.CommentRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.CommentRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Information.CommentController">
+            <summary>
+            信息评论管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.GetComments(Core.ApiClient.Controllers.CommentRequest)">
+            <summary>
+            查询指定文章评论
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.CommentStar(System.Int32)">
+            <summary>
+            点赞评论信息
+            </summary>
+            <param name="commentKey">评论关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.CommentUnStar(System.Int32)">
+            <summary>
+            取消点赞评论信息
+            </summary>
+            <param name="commentKey">评论信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.Post(Core.DataAccess.Model.Project.Comment.CommentList)">
+            <summary>
+            添加评论
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.Put(Core.DataAccess.Model.Project.Comment.CommentList)">
+            <summary>
+            修改评论
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.Delete(System.Int32)">
+            <summary>
+            删除评论
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.PostAttr(Core.DataAccess.Model.Project.Comment.CommentAttribute)">
+            <summary>
+            添加评论属性
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.PutAttr(Core.DataAccess.Model.Project.Comment.CommentAttribute)">
+            <summary>
+            修改评论属性
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentController.DeleteAttr(System.Int32)">
+            <summary>
+            删除评论属性
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Information.CommentReplyController">
+            <summary>
+            信息评论回复管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentReplyController.GetCommentReply(Core.ApiClient.Controllers.CommentReplyRequest)">
+            <summary>
+            查询指定评论回复
+            </summary>
+            <param name="model">查询暂时</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentReplyController.CommentReplyStar(System.Int32)">
+            <summary>
+            点赞评论信息
+            </summary>
+            <param name="commentReplyKey">回复关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentReplyController.CommentReplyUnStar(System.Int32)">
+            <summary>
+            取消点赞评论信息
+            </summary>
+            <param name="commentReplyKey">回复关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentReplyController.Post(Core.DataAccess.Model.Project.Comment.CommentReply)">
+            <summary>
+            添加评论回复
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentReplyController.Put(Core.DataAccess.Model.Project.Comment.CommentReply)">
+            <summary>
+            修改评论回复
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.CommentReplyController.Delete(System.Int32)">
+            <summary>
+            删除评论回复
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Information.InformationController">
+            <summary>
+            信息管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PostGetInfo(Core.ApiClient.Controllers.GetInfoItem)">
+            <summary>
+            查询指定文章信息[包含评论信息]
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PostGetInfo(Core.ApiClient.Controllers.SearchInfoRequest)">
+            <summary>
+            搜索文章信息
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PostGetInfoAttrs(Core.ApiClient.Controllers.SearchInfoRequest)">
+            <summary>
+            搜索文章信息并获取指定属性
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PostGetInfoByAttrs(Core.ApiClient.Controllers.SearchInfoRequest)">
+            <summary>
+            根据属性搜索文章信息
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PostGetInfoByUser(Core.ApiClient.Controllers.SearchInfoRequest)">
+            <summary>
+            获取用户发表的信息并指定属性
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.GetInformationUserByAttributes(Core.ApiClient.Controllers.SearchInfoRequest)">
+            <summary>
+            根据属性搜索当前用户参与的信息
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.History(Core.ApiClient.Controllers.SearchInfoRequest)">
+            <summary>
+            获取用户浏览历史
+            </summary>
+            <param name="model">查询实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.InfoStar(System.Int32)">
+            <summary>
+            点赞文章信息
+            </summary>
+            <param name="infoKey">文章信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.InfoUnStar(System.Int32)">
+            <summary>
+            取消点赞文章信息
+            </summary>
+            <param name="infoKey">文章信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.InfoWatch(System.Int32)">
+            <summary>
+            关注文章信息
+            </summary>
+            <param name="infoKey">文章信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.InfoUnWatch(System.Int32)">
+            <summary>
+            取消关注文章信息
+            </summary>
+            <param name="infoKey">文章信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.InfoSettingRead(System.Int32,System.Int32)">
+            <summary>
+            新增阅读数量
+            </summary>
+            <param name="infoKey">文章关键字</param>
+            <param name="count">阅读数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.Post(Core.DataAccess.Model.Project.Information.InformationList)">
+            <summary>
+            添加文章
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.Put(Core.DataAccess.Model.Project.Information.InformationList)">
+            <summary>
+            修改文章
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.Delete(System.Int32)">
+            <summary>
+            删除文章信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PostAttr(Core.DataAccess.Model.Project.Information.InformationAttribute)">
+            <summary>
+            添加文章属性
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.PutAttr(Core.DataAccess.Model.Project.Information.InformationAttribute)">
+            <summary>
+            修改文章属性
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationController.DeleteAttr(System.Int32)">
+            <summary>
+            删除文章信息属性
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Information.InformationTypeController">
+            <summary>
+            信息分类管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.PostGetTypeByKey(System.Int32)">
+            <summary>
+            查询指定分类信息含子集属性
+            </summary>
+            <param name="key">分类关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.PostGetType(Core.Framework.Model.Common.Pagination)">
+            <summary>
+            查询分类信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.PostGetUserType(Core.Framework.Model.Common.Pagination)">
+            <summary>
+            查询指定用户分类信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.Post(Core.DataAccess.Model.Project.Information.InformationType)">
+            <summary>
+            添加分类信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.Put(Core.DataAccess.Model.Project.Information.InformationType)">
+            <summary>
+            修改分类信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.Delete(System.Int32)">
+            <summary>
+            删除分类信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.PostAttr(Core.DataAccess.Model.Project.Information.InformationTypeAttribute)">
+            <summary>
+            添加分类属性信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.PutAttr(Core.DataAccess.Model.Project.Information.InformationTypeAttribute)">
+            <summary>
+            修改分类属性信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Information.InformationTypeController.DeleteAttr(System.Int32)">
+            <summary>
+            删除分类属性信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.AttributeListRequest">
+            <summary>
+            属性请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.AttributeListRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.AttributeListRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.AttributeListRequest.attributes">
+            <summary>
+            产品属性
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.AttributeListRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.AttributeListRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest">
+            <summary>
+            仓库请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.search">
+            <summary>
+            查询关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.type_key">
+            <summary>
+            分类关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.attributes">
+            <summary>
+            产品属性
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.EntrepotListRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.EntrepotRequest">
+            <summary>
+            仓库请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotRequest.type_key">
+            <summary>
+            分类关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotRequest.sku_key">
+            <summary>
+            库存关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Entrepot.EntrepotRequest.count_stock">
+            <summary>
+            库存数量
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductAttributeController">
+            <summary>
+            产品属性操作
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductAttributeController.GetAttribute(Core.ApiClient.Controllers.Entrepot.AttributeListRequest)">
+            <summary>
+            获取指定属性列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductAttributeController.PostAttr(Core.DataAccess.Model.Project.Entrepot.ProductAttrbute)">
+            <summary>
+            添加产品属性
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductAttributeController.PutAttr(Core.DataAccess.Model.Project.Entrepot.ProductAttrbute)">
+            <summary>
+            修改产品属性
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductAttributeController.DeleteAttr(System.Int32)">
+            <summary>
+            删除产品属性
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductParamsController">
+            <summary>
+            字典项配置
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.GetOrderItem(Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取字典title属性集合
+            </summary>
+            <param name="pagination">分页实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.GerDicItemContent(System.Int32)">
+            <summary>
+            获取指定字典内容
+            </summary>
+            <param name="param_key">属性关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.POST(Core.DataAccess.Model.Project.Entrepot.ProductParams)">
+            <summary>
+            添加字典
+            </summary>
+            <param name="model">字典实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.POST(Core.DataAccess.Model.Project.Entrepot.ProductParamsDic)">
+            <summary>
+            添加指定字典内容
+            </summary>
+            <param name="model">字典内容实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.PUT(Core.DataAccess.Model.Project.Entrepot.ProductParams)">
+            <summary>
+            修改字典内容
+            </summary>
+            <param name="model">字典实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.PUT(Core.DataAccess.Model.Project.Entrepot.ProductParamsDic)">
+            <summary>
+            修改指定字典内容
+            </summary>
+            <param name="model">字典内容实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.Delete(System.Int32)">
+            <summary>
+            删除字典内容
+            </summary>
+            <param name="id">字典关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductParamsController.DeleteDic(System.Int32)">
+            <summary>
+            删除指定字典内容
+            </summary>
+            <param name="id">字典内容关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductPurchaseController">
+            <summary>
+            产品采购
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductPurchaseController.POST(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductPurchase})">
+            <summary>
+            产品采购
+            </summary>
+            <param name="purchases"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductSellController">
+            <summary>
+            产品销售
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductSellController.POST(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductSell})">
+            <summary>
+            产品销售
+            </summary>
+            <param name="sells">销售集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductSellController.ProductReturnGoods(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductPurchase})">
+            <summary>
+            产品退货
+            </summary>
+            <param name="purchases">退货集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductSKUController">
+            <summary>
+            库存管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductSKUController.POST(System.Collections.Generic.List{Core.DataAccess.Model.Project.Entrepot.ProductSku})">
+            <summary>
+            注册产品库存
+            </summary>
+            <param name="skus">修改参数模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductSKUController.Put(Core.ApiClient.Controllers.Entrepot.EntrepotRequest)">
+            <summary>
+            修改库存
+            </summary>
+            <param name="model">提交参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductTemplateController">
+            <summary>
+            产品模板
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.GetItemProductTemplate(System.Int32)">
+            <summary>
+            获取指定产品模板
+            </summary>
+            <param name="temp_key">模板关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.GetProductTemplate(Core.ApiClient.Controllers.Entrepot.EntrepotListRequest)">
+            <summary>
+            获取指定分类产品模板
+            </summary>
+            <param name="model">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.GetSeachProductTemplate(Core.ApiClient.Controllers.Entrepot.EntrepotListRequest)">
+            <summary>
+            根据标题搜索产品模板
+            </summary>
+            <param name="model">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.GetSeachProductTemplateByAttributes(Core.ApiClient.Controllers.Entrepot.EntrepotListRequest)">
+            <summary>
+            根据搜索产品模板根据属性
+            </summary>
+            <param name="model">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.ConfirmProductTemplate(System.Int32)">
+            <summary>
+            确认产品模板
+            </summary>
+            <param name="temp_key">模板关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.POST(Core.DataAccess.Model.Project.Entrepot.ProductTemplate)">
+            <summary>
+            添加模板
+            </summary>
+            <param name="model">字典实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.PUT(Core.DataAccess.Model.Project.Entrepot.ProductTemplate)">
+            <summary>
+            修改模板
+            </summary>
+            <param name="model">字典实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTemplateController.Delete(System.Int32)">
+            <summary>
+            删除模板
+            </summary>
+            <param name="id">分类关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Entrepot.ProductTypeController">
+            <summary>
+            产品分类
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTypeController.GetProductType(Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取分类集合
+            </summary>
+            <param name="pagination">分页实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTypeController.GetProductItemType(System.Int32)">
+            <summary>
+            获取指定分类
+            </summary>
+            <param name="type_key">分类关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTypeController.POST(Core.DataAccess.Model.Project.Entrepot.ProductType)">
+            <summary>
+            添加分类
+            </summary>
+            <param name="model">字典实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTypeController.Put(Core.DataAccess.Model.Project.Entrepot.ProductType)">
+            <summary>
+            修改分类信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Entrepot.ProductTypeController.Delete(System.Int32)">
+            <summary>
+            删除分类
+            </summary>
+            <param name="id">分类关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.GetInfoItem">
+            <summary>
+            信息请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.GetInfoItem.isComment">
+            <summary>
+            是否获取评论信息
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.GetInfoItem.infoKey">
+            <summary>
+            信息关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.GetInfoItem.attributes">
+            <summary>
+            查询属性集合
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.SearchInfoRequest">
+            <summary>
+            信息请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.Type">
+            <summary>
+            分类关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.search">
+            <summary>
+            搜索关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.attributes">
+            <summary>
+            属性集合
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.isGetComment">
+            <summary>
+            是否获取文章评论
+            是 则获取前3条
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.SearchInfoRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.SearchInfoRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.LoggerController">
+            <summary>
+            日志系统
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.LoggerController.Templates(System.DateTime,System.DateTime)">
+            <summary>
+            获取当前日志参数
+            Template
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.LoggerController.Tags(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            获取当前日志参数
+            Tags
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.LoggerController.Search(Core.Framework.Model.ViewModel.LoggerRequest)">
+            <summary>
+            搜索日志
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.LoggerController.Queue(Core.Framework.Model.ViewModel.LoggerRequest)">
+            <summary>
+            搜索Queue日志
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.LoggerController.Customize(Core.Framework.Model.ViewModel.LoggerAddRequest)">
+            <summary>
+            添加日志
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.MGT.SupplierController.WChatApplyPay">
+            <summary>
+            订单发起付款
+            [微信]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Order.AcceptModel.AliApplyPayRequest">
+            <summary>
+            发起付款【支付宝】
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Order.AcceptModel.AliApplyPayRequest.orderKey">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Order.OrderBasisController">
+            <summary>
+            订单管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.GetOrderItem(System.Int32)">
+            <summary>
+            查询指定订单详情
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.GetOrderAndTrackNode(System.Int32)">
+            <summary>
+            查询指定订单详情包含物流信息
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.GetOrderCount">
+            <summary>
+            查询指定用户订单统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.GetOrder(Core.ApiClient.Controllers.OrderListRequest)">
+            <summary>
+            查询用户订单
+            </summary>
+            <param name="model">额外事件实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.GetOrderUser(Core.ApiClient.Controllers.OrderListRequest)">
+            <summary>
+            查询指定用户订单
+            </summary>
+            <param name="model">额外事件实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.UserCartOrder(Core.ApiClient.Controllers.OrderRequest)">
+            <summary>
+            下订单
+            </summary>
+            <param name="request">订单请求信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.AliApplyPay(Core.ApiClient.Controllers.Order.AcceptModel.AliApplyPayRequest)">
+            <summary>
+            订单发起付款
+            [支付宝]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.WChatApplyPay(Core.ApiClient.Controllers.Order.AcceptModel.AliApplyPayRequest)">
+            <summary>
+            订单发起付款
+            [微信]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderPayment(Core.DataAccess.Model.Project.Order.OrderPay)">
+            <summary>
+            订单已付款
+            </summary>
+            <param name="payment_ordel">付款实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderShipments(Core.ApiClient.Controllers.OrderShipmentsRequest)">
+            <summary>
+            订单产品发货
+            </summary>
+            <param name="request">发货商品</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderShipmentsConfirm(System.Int32)">
+            <summary>
+            订单产品发货确认
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderReturnsApply(Core.ApiClient.Controllers.Order.AcceptModel.OrderReturnsRequest)">
+            <summary>
+            订单退货申请
+            </summary>
+            <param name="request">申请退货实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderReturns(Core.ApiClient.Controllers.OrderShipmentsRequest)">
+            <summary>
+            退货订单发货
+            </summary>
+            <param name="request">退货订单</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderRefundApply(Core.DataAccess.Model.Project.Order.OrderRefund)">
+            <summary>
+            订单退款申请
+            </summary>
+            <param name="refund">申请实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderServeApply(Core.DataAccess.Model.Project.Order.OrderServe)">
+            <summary>
+            订单申请售后
+            </summary>
+            <param name="model">售后实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderAccident(Core.DataAccess.Model.Project.Order.OrderAccident)">
+            <summary>
+            订单额外事件
+            </summary>
+            <param name="model">额外事件实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderServeUpdate(System.Int32,System.String)">
+            <summary>
+            修改售后相关信息
+            </summary>
+            <param name="order_serve_key">售后关键字</param>
+            <param name="content">售后实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderRefundStuas(System.Int32,Core.IBusiness.IOrderModule.Model.OrderBitStatu)">
+            <summary>
+            退款申请状态处理
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <param name="status">状态枚举</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderRefundUpdate(System.Int32,System.Int32,System.Decimal)">
+            <summary>
+            修改退款订单金额
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <param name="order_refund_key">退款订单关键字</param>
+            <param name="price">修改价格</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderRefundUpdate(System.Int32,System.String)">
+            <summary>
+            修改地址
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <param name="content">地址信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderComment(System.Int32)">
+            <summary>
+            订单评论
+            </summary>
+            <param name="orderproduct_key">订单商品关键字[非产品ID]</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderAddressUpdate(System.Int32,System.String,System.Int32)">
+            <summary>
+            修改指定产品收货地址
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <param name="content">地址信息</param>
+            <param name="product_key">订单产品关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.OrderPaymentUpdate(System.Int32,System.Decimal)">
+            <summary>
+            修改订单付款金额
+            </summary>
+            <param name="order_key">订单关键字</param>
+            <param name="price">修改价格</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.CancelOrder(System.Int32)">
+            <summary>
+            删除指定订单
+            </summary>
+            <param name="order_key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderBasisController.delete(System.Int32)">
+            <summary>
+            删除指定订单
+            </summary>
+            <param name="order_key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Order.OrderUserAddressController">
+            <summary>
+            用户订单地址配置
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserAddressController.Get">
+            <summary>
+            获取用户地址信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserAddressController.POST(Core.DataAccess.Model.Project.Order.OrderUserAddress)">
+            <summary>
+            添加地址
+            </summary>
+            <param name="model">地址模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserAddressController.PUT(Core.DataAccess.Model.Project.Order.OrderUserAddress)">
+            <summary>
+            修改地址信息
+            </summary>
+            <param name="model">字典实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserAddressController.Delete(System.Int32)">
+            <summary>
+            删除地址
+            </summary>
+            <param name="id">字典关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Order.OrderUserCartController">
+            <summary>
+            用户购物车管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserCartController.GetCart(Core.Framework.Model.Common.Pagination)">
+            <summary>
+            获取购物车信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserCartController.reg(Core.DataAccess.Model.Project.Order.OrderUserCart)">
+            <summary>
+            加入用户购物车
+            </summary>
+            <param name="model">添加参数</param>
+            <returns>返回购物ID</returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserCartController.UserCartOrder(Core.ApiClient.Controllers.OrderRequest)">
+            <summary>
+            根据购物车下单
+            </summary>
+            <param name="request">订单请求信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserCartController.Update(Core.DataAccess.Model.Project.Order.OrderUserCart)">
+            <summary>
+            修改购物车数量信息
+            </summary>
+            <param name="model">修改参数模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Order.OrderUserCartController.delete(System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="key">购物关键字</param>
+            <returns>返回值受影响行数</returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.OrderListRequest">
+            <summary>
+            订单查询请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderListRequest.order_statu">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderListRequest.order_type">
+            <summary>
+            订单类型
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderListRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderListRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderListRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.OrderListRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.OrderRequest">
+            <summary>
+            订单请求参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderRequest.orderBasis">
+            <summary>
+            订单主信息
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderRequest.address">
+            <summary>
+            订单地址
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderRequest.userCarts">
+            <summary>
+            购物车
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.OrderRequest.products">
+            <summary>
+            商品
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.AppListRequest">
+            <summary>
+            项目查询实体
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.AppListRequest.search">
+            <summary>
+            搜索
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.AppListRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Project.AcceptModel.PayRequest.orderKey">
+            <summary>
+            订单号
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Project.AcceptModel.PayRequest.title">
+            <summary>
+            订单名称
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Project.ApiServiceController">
+            <summary>
+            项目服务
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.ApiServiceController.GetServiceList">
+            <summary>
+            获取服务列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.ApiServiceController.AliApplyPay(Core.ApiClient.Controllers.Project.AcceptModel.PayRequest)">
+            <summary>
+            订单发起付款
+            [支付宝]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.ApiServiceController.WChatApplyPay(Core.ApiClient.Controllers.Project.AcceptModel.PayRequest)">
+            <summary>
+            订单发起付款
+            [微信]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.ApiServiceController.OrderPayment(Core.ApiClient.Controllers.Order.AcceptModel.AliApplyPayRequest)">
+            <summary>
+            订单已付款
+            </summary>
+            <param name="request">实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Project.AppController">
+            <summary>
+            项目管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.AppController.GetAppList(Core.ApiClient.Controllers.AppListRequest)">
+            <summary>
+            获取项目列表
+            </summary>
+            <param name="model">额外事件实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.AppController.POST(Core.DataAccess.Model.Projects.ProjectList)">
+            <summary>
+            添加项目
+            </summary>
+            <param name="model">项目实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.AppController.Put(Core.DataAccess.Model.Projects.ProjectList)">
+            <summary>
+            修改项目信息
+            </summary>
+            <param name="model">项目实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Project.MemberController">
+            <summary>
+            项目会员管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.Get">
+            <summary>
+            根据Token获取用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.Login(Core.DataAccess.Model.Projects.ProjectUser,System.String)">
+            <summary>
+            登陆
+            </summary>
+            <param name="model"></param>
+            <param name="type">登陆类型[.login | .loginByToken]</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.GetLocalClientInfo">
+            <summary>
+            获取本地化的用户字典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.Login(Core.DataAccess.Model.Projects.ProjectUser,System.String,System.Int32)">
+            <summary>
+            登陆并设置缓存
+            </summary>
+            <param name="model"></param>
+            <param name="type">登陆类型[.login | .loginByToken]</param>
+            <param name="hour">身份过期时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.Reg(Core.DataAccess.Model.Projects.ProjectUser)">
+            <summary>
+            注册
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.UpdateUserInfo(Core.DataAccess.Model.Projects.ProjectUser)">
+            <summary>
+            修改用户信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Project.MemberController.OutLogin(System.String)">
+            <summary>
+            退出登陆
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Queue.QueryMessageRequest">
+            <summary>
+            推送接收参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.IsMustBeServed">
+            <summary>
+            消息是否必须到达
+            默认为 “是”
+            如果为 “否” 则不存在订阅消息时抛弃消息
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.Template">
+            <summary>
+            主题
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.Token">
+            <summary>
+            消息Token
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.MessageKey">
+            <summary>
+            消息关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.MessageType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.Parameter">
+            <summary>
+            消息[属性]参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.QueryMessageRequest.SendDateTime">
+            <summary>
+            发送时间
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Queue.AcceptModel.SubscribeRequest">
+            <summary>
+            订阅参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Queue.AcceptModel.SubscribeRequest.channel">
+            <summary>
+            订阅渠道名
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Queue.QueueController">
+            <summary>
+            任务管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.Push(Core.ApiClient.Controllers.Queue.QueryMessageRequest)">
+            <summary>
+            发布任务信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.TestPush(Core.Framework.Model.WebSockets.QueryMessageTest)">
+            <summary>
+            调试专用 发布任务信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.Confirm(Core.Framework.Model.ViewModel.QueueRequest)">
+            <summary>
+            收到任务确认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.Finished(Core.Framework.Model.ViewModel.QueueRequest)">
+            <summary>
+            任务已完成
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.Fail(Core.Framework.Model.ViewModel.QueueRequest)">
+            <summary>
+            任务失败
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.Subscribe(Core.ApiClient.Controllers.Queue.AcceptModel.SubscribeRequest)">
+            <summary>
+            订阅渠道
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Queue.QueueController.UnSubscribe(Core.ApiClient.Controllers.Queue.AcceptModel.SubscribeRequest)">
+            <summary>
+            取消订阅渠道
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest">
+            <summary>
+            短信参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest.toPhone">
+            <summary>
+            接收方手机 
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest">
+            <summary>
+            用户查询参数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.search">
+            <summary>
+            查询关键字
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.startTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.endTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.rows">
+            <summary>
+            每页显示条数
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.page">
+            <summary>
+            页名
+            </summary>
+        </member>
+        <member name="P:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest.LayerTable">
+            <summary>
+            兼容 Layui Table
+            </summary>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Socket.GroupController">
+            <summary>
+            群组操作
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.Get(System.Int32)">
+            <summary>
+            根据群组ID获取群组信息
+            </summary>
+            <param name="id">群组关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.Get">
+            <summary>
+            查询用户群组信息列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.GetGroupsByUserKey">
+            <summary>
+            查询用户以加入群组集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.GetGroupUsersByGroupKey(System.Int32)">
+            <summary>
+            查询群组成员
+            </summary>
+            <param name="id">群组关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.Create(Core.DataAccess.Model.Project.Queue.ProjectModuleGroup)">
+            <summary>
+            创建群组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.AddGroupUser(Core.DataAccess.Model.Project.Queue.ProjectModuleGroupUser)">
+            <summary>
+            加入群组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.Update(Core.DataAccess.Model.Project.Queue.ProjectModuleGroup)">
+            <summary>
+            修改群组信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.UpdateGroupUser(Core.DataAccess.Model.Project.Queue.ProjectModuleGroupUser)">
+            <summary>
+            修改组员信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.GroupController.Delete(Core.Framework.Model.ViewModel.ScoketGroupRequest)">
+            <summary>
+            解散群组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Socket.MessageController">
+            <summary>
+            查询任务消息
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetOfflineMessages(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取离线任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetOfflineMessagesByMsgKey(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取指定关键字离线任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetOfflineMessagesByMsgKeyAsTemplate(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取指定关键字集合离线任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetGroupMessages(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取群组任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetGroupMessagesByMsgKey(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取指定关键字群组的任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetGroupMessagesByMsgKeyAsTemplate(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取群组指定主题的任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetBackupsMessages(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取历史任务
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetBackupsMessagesByMsgKey(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取历史任务根据关键字
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.MessageController.GetBackupsMessagesByMsgKeyAsTemplate(Core.Framework.Model.ViewModel.ScoketMessageRequest)">
+            <summary>
+            获取历史任务根据关键字和主题
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Socket.RelationshipController">
+            <summary>
+            用户关系管理
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.GetAll">
+            <summary>
+            查询用户关系 [分组列表]|[好友列表]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.GetGroupMembersByGroupKey(System.Int32)">
+            <summary>
+            查询指定得分组好友
+            </summary>
+            <param name="groupKey">分组关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.GetItemGroupMember(System.Int32)">
+            <summary>
+            查询指定好友信息
+            </summary>
+            <param name="id">关系关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.CreateGroup(Core.DataAccess.Model.Project.Queue.ProjectUserGroup)">
+            <summary>
+            创建分组
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.CreateGroupMember(Core.DataAccess.Model.Project.Queue.ProjectUserGroupMember)">
+            <summary>
+            加入分组成员
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.UpdateGroup(Core.DataAccess.Model.Project.Queue.ProjectUserGroup)">
+            <summary>
+            修改分组
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.UpdateGroupMember(Core.DataAccess.Model.Project.Queue.ProjectUserGroupMember)">
+            <summary>
+            修改分组成员
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.DeleteGroup(System.Int32)">
+            <summary>
+            删除分组
+            </summary>
+            <param name="id">分组关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.RelationshipController.DeleteGroupMember(System.Int32)">
+            <summary>
+            删除分组成员
+            </summary>
+            <param name="id">关系关键字</param>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.Socket.UserController">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.Get">
+            <summary>
+            获取用户信息根据Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.GetAll">
+            <summary>
+            客户端缓存用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.SmsUserReg(Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest)">
+            <summary>
+            短信注册用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.SmsUserBindPhone(Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest)">
+            <summary>
+            短信用户绑定手机号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.SmsUserUpdatePassword(Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest)">
+            <summary>
+            短信用户修改密码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.SmsLogin(Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest)">
+            <summary>
+            短信用户登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.Sms(Core.ApiClient.Controllers.Socket.AcceptModel.SMSRequest)">
+            <summary>
+            通用短信验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.GetAll(Core.ApiClient.Controllers.Socket.AcceptModel.UserSearchRequest)">
+            <summary>
+            用户列表
+            </summary>
+            <param name="model">查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.GetByUserId(System.Int32)">
+            <summary>
+            获取用户信息根据关键字
+            </summary>
+            <param name="userid">用户关键字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.GetByCache(System.Int32,System.Int32)">
+            <summary>
+            获取用户信息根据关键字并设置缓存
+            </summary>
+            <param name="userid">用户关键字</param>
+            <param name="hour">缓存时间/H</param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.Reg(Core.DataAccess.Model.Project.Queue.ProjectModuleUser)">
+            <summary>
+            注册用户
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.Login(Core.IBusiness.IUserModule.Model.LoginByUser)">
+            <summary>
+            根据用户名密码登陆
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.LoginByPhone(Core.IBusiness.IUserModule.Model.LoginByPhone)">
+            <summary>
+            根据手机号密码登陆
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.LoginByClientCode(Core.IBusiness.IUserModule.Model.LoginByPhoneCode)">
+            <summary>
+            根据手机号短信验证码登陆
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.LoginByClient(Core.IBusiness.IUserModule.Model.LoginByUUID)">
+            <summary>
+            根据UUID登陆
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.LoginByWChat(Core.IBusiness.IUserModule.Model.LoginByWChat)">
+            <summary>
+            根据微信OPENID登陆
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.LoginByWChatOpid(Core.IBusiness.IUserModule.Model.LoginByWChatMin)">
+            <summary>
+            微信小程序登录
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.LoginByAliOpid(Core.IBusiness.IUserModule.Model.LoginByAliMin)">
+            <summary>
+            支付宝小程序登录
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.UpdateUserInfo(Core.DataAccess.Model.Project.Queue.ProjectModuleUser)">
+            <summary>
+            修改用户信息
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.UpdateUserInfoParas(Core.DataAccess.Model.Project.Queue.ProjectModuleUser)">
+            <summary>
+            修改用户扩展参数
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.OutLogin">
+            <summary>
+            退出登陆根据用户Token
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.OutLoginByServiceToken(System.String)">
+            <summary>
+            退出SocketClient根据ServiceToken
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.Socket.UserController.WsOutLogin">
+            <summary>
+            退出SocketClient根据ClientToken
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.StatisticsController">
+            <summary>
+            数据统计
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.StatisticsController.Service">
+            <summary>
+            获取所有服务器列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.StatisticsController.Clients">
+            <summary>
+            获取当前系统所有客户机
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.StatisticsController.TaskMsg">
+            <summary>
+            当前服务器任务队列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Controllers.SystemController">
+            <summary>
+            系统操作
+            </summary>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.SystemController.Get">
+            <summary>
+            查询数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.SystemController.RemoveClientInfo(System.String)">
+            <summary>
+            删除服务客户机信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core.ApiClient.Controllers.SystemController.uni(System.String)">
+            <summary>
+            卸载当前服务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Core.ApiClient.Startup">
+                    
+                    请优先解决 非“PlanTaskByCoding”目录下的 FIXME/TODO 需求
+                    如TASK优先级 > TODO。请将TASK任务移动至目标调整位置，并将任务标记调整为 “TODU”
+                 
+                    关于注释
+                        - FIXME 这里是错误的，必须处理 
+                        - TASK  新增功能需求
+                        - TODO  部分功能代码等待编写
+                        - XXX   程序可运行但是有优化的空间
+                        - PS    备注信息
+            
+                    如何查看任务
+                        视图 > 任务列表 
+            
+                    - 标记无效
+                        工具 > 选项 > 搜索任务列表 > 添加任务标记  (FIXME/TASK/XXX) 并选择合适的优先级
+            
+                    团队项目中可以使用名称加任务标记符号： Jian XXX，Jian *
+            
+                    建议自定义快捷键
+                        工具 > 自定义 > 键盘 > 搜索工具列表 > Ctrl + T > 分配
+            
+                    Error: Fa Xian New wenti,Mgt request null ?????
+                    
+        </member>
+        <member name="M:System.Prototype.GetRemark``1(``0)">
+            <summary>
+            获取备注信息
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
